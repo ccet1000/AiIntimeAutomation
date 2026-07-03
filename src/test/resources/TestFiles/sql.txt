@@ -1,0 +1,166 @@
+1. What is SQL?
+
+Answer:
+SQL (Structured Query Language) is a standard language used to store, retrieve, manipulate, and manage data in relational databases. It supports operations such as querying, inserting, updating, and deleting records.
+
+2. What is the difference between DELETE, TRUNCATE, and DROP?
+
+Answer:
+
+Command	Purpose	Rollback Possible	Structure Removed
+DELETE	Removes selected rows	Yes (if transaction supported)	No
+TRUNCATE	Removes all rows quickly	Usually No	No
+DROP	Removes entire table	No	Yes
+
+Example:
+
+DELETE FROM employees WHERE id = 1;
+TRUNCATE TABLE employees;
+DROP TABLE employees;
+3. What is a Primary Key?
+
+Answer:
+A Primary Key is a column or set of columns that uniquely identifies each row in a table. It cannot contain NULL values and must be unique.
+
+Example:
+
+CREATE TABLE users (
+    user_id INT PRIMARY KEY,
+    name VARCHAR(100)
+);
+4. What is the difference between a Primary Key and a Foreign Key?
+
+Answer:
+
+Primary Key	Foreign Key
+Uniquely identifies records in its own table	References a Primary Key in another table
+Must be unique	Can contain duplicate values
+Cannot be NULL	Can be NULL unless restricted
+
+Example:
+
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+5. Write a query to find the second highest salary from an Employee table.
+
+Answer:
+
+SELECT MAX(salary)
+FROM Employee
+WHERE salary < (
+    SELECT MAX(salary)
+    FROM Employee
+);
+
+This query first finds the highest salary and then returns the highest salary below it.
+
+6. What is the difference between WHERE and HAVING?
+
+Answer:
+
+WHERE filters rows before grouping.
+HAVING filters groups after aggregation.
+
+Example:
+
+SELECT department_id, COUNT(*)
+FROM employees
+GROUP BY department_id
+HAVING COUNT(*) > 5;
+
+Here, HAVING filters departments with more than 5 employees.
+
+7. Given the following tables:
+
+Customers
+
+customer_id	name
+1	John
+2	Alice
+
+Orders
+
+order_id	customer_id
+101	1
+102	1
+
+What is the result of this query?
+
+SELECT c.name, COUNT(o.order_id)
+FROM Customers c
+LEFT JOIN Orders o
+ON c.customer_id = o.customer_id
+GROUP BY c.customer_id, c.name;
+
+Answer:
+
+name	COUNT(order_id)
+John	2
+Alice	0
+
+LEFT JOIN returns all customers, even those without orders.
+
+8. What is normalization?
+
+Answer:
+Normalization is the process of organizing database tables to reduce redundancy and improve data integrity. Common normal forms include:
+
+1NF (First Normal Form)
+2NF (Second Normal Form)
+3NF (Third Normal Form)
+
+Benefits:
+
+Reduces duplicate data
+Improves consistency
+Simplifies maintenance
+9. What will be the output?
+
+Table: Employees
+
+id	salary
+1	5000
+2	NULL
+3	7000
+
+Query:
+
+SELECT COUNT(salary)
+FROM Employees;
+
+Answer:
+
+2
+
+COUNT(column_name) ignores NULL values.
+
+10. Find customers who have never placed an order.
+
+Answer:
+
+SELECT c.customer_id,
+       c.name
+FROM Customers c
+LEFT JOIN Orders o
+ON c.customer_id = o.customer_id
+WHERE o.order_id IS NULL;
+
+This query returns customers that do not have matching records in the Orders table.
+
+Expected Evaluation Areas
+Question	Skill Tested
+1	Basic SQL Concepts
+2	DDL vs DML Knowledge
+3	Database Design
+4	Relationships & Constraints
+5	Query Writing
+6	Aggregation Understanding
+7	Join Reasoning
+8	Database Theory
+9	NULL Handling
+10	Advanced Join Logic
+
+This set is useful because it tests factual knowledge, SQL query generation, query interpretation, and reasoning rather than simple memorization.

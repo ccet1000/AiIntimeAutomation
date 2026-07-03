@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Automation Suite">
+
+    <test name="Test Report">
+
+        <classes>
+            <class name="com.aiintime.tests.AddUserTest"/>
+            <class name="com.aiintime.tests.HubCreationTest"/>
+            <class name="com.aiintime.tests.VaultTest"/>
+            <class name="com.aiintime.tests.HubActionsTest"/>
+
+        </classes>
+
+    </test>
+
+</suite>

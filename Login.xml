@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Login Suite" parallel="false">
+
+    <test name="Login Tests">
+        <classes>
+            <class name="com.aiintime.tests.LoginTest"/>
+        </classes>
+    </test>
+
+</suite>
