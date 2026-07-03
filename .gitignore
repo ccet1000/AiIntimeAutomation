@@ -1,8 +1,154 @@
-target/
-test-output/
+# =========================
 
-.settings/
-.project
-.classpath
+# Build output
+
+# =========================
+
+/target/
+/build/
+/out/
+
+target/
+build/
+out/
+# =========================
+
+# Logs
+
+# =========================
 
 *.log
+*.html
+
+# =========================
+
+# Test Reports
+
+# =========================
+
+/test-output/
+/surefire-reports/
+/failsafe-reports/
+
+test-output/
+surefire-reports/
+failsafe-reports/
+# Selenium / Automation Reports
+
+/allure-results/
+/allure-report/
+/extent-reports/
+/Reports/
+
+allure-results/
+allure-report/
+extent-reports/
+Reports/
+# Screenshots (failure captures)
+
+/Screenshots/
+Screenshots/
+*.png
+.junie/
+.idea/
+# =========================
+
+# Maven
+
+# =========================
+
+/.mvn/wrapper/maven-wrapper.jar
+
+# (Keep wrapper scripts, ignore only jar if needed)
+
+# =========================
+
+# Gradle
+
+# =========================
+
+.gradle/
+build/
+
+# =========================
+
+# IntelliJ IDEA
+
+# =========================
+
+.idea/
+*.iml
+
+# =========================
+
+# Eclipse
+
+# =========================
+
+/.project
+/.classpath
+/.settings/
+
+# =========================
+
+# VS Code
+
+# =========================
+
+/.vscode/
+
+# =========================
+
+# OS files
+
+# =========================
+
+/.DS_Store
+/Thumbs.db
+
+# =========================
+
+# Temporary files
+
+# =========================
+
+*.tmp
+*.temp
+*.html
+
+# =========================
+
+# Environment / Secrets
+
+# =========================
+
+.env
+config.properties.local
+
+# =========================
+
+# WebDrivers (optional)
+
+# =========================
+
+# Ignore only if using WebDriverManager
+
+chromedriver*
+geckodriver*
+msedgedriver*
+
+# =========================
+
+# Coverage
+
+# =========================
+
+/coverage/
+jacoco.exec
+
+# Test Reports
+src/test/resources/ExtentReport/
+
+# Screenshots
+src/test/resources/screenshots/
+ 
